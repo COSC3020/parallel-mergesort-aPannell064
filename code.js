@@ -1,6 +1,7 @@
-function pmsMR(v1, cb) {
+function pmsMR(arr, cb) {
+    if(arr.length < 2) {return arr;}
     var Parallel = require('paralleljs'),
-        p = new Parallel(v1);
+        p = new Parallel(arr);
 
     p.reduce(function(x) {
         var left = x[0].length ? x[0] : [x[0]];
