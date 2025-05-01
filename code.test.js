@@ -7,7 +7,7 @@ const testSort =
     jsc.forall("array nat", function(arr) {
         var a1 = JSON.parse(JSON.stringify(arr));
         var a2 = JSON.parse(JSON.stringify(arr));
-        return pmsMR(a1, function(i) {return JSON.stringify(i) === JSON.stringify(a2.sort(function(a, b) { return a - b; }))});
+        pmsMR(a1, function(i) {return JSON.stringify(i) === JSON.stringify(a2.sort(function(a, b) { return a - b; }))});
     });
 
 jsc.assert(testSort);
