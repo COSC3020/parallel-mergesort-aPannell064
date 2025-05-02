@@ -11,3 +11,5 @@ const testSort = jsc.forall("array nat", function (arr, done) {
         done(JSON.stringify(i) === JSON.stringify(expected).sort((a, b) => a - b));
     });
 });
+
+jsc.assert(testSort);
