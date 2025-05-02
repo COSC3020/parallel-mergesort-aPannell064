@@ -8,7 +8,6 @@ const testSort = jsc.forall("array nat", function (arr, done) {
     const a2 = JSON.parse(arr);
 
     pmsMR(a1, function (i) {
-        const pass = JSON.stringify(i) === JSON.stringify(expected).sort((a, b) => a - b);
-        done(pass);
+        done(JSON.stringify(i) === JSON.stringify(expected).sort((a, b) => a - b));
     });
 });
