@@ -1,5 +1,5 @@
 function pmsMR(arr, cb) {
-    if(arr.length < 2) {return arr;}
+    if(arr.length < 2) {return cb(arr);}
     var Parallel = require('paralleljs'),
         p = new Parallel(arr);
 
