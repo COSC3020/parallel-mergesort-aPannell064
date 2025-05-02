@@ -3,9 +3,12 @@ const jsc = require('jsverify');
 
 eval(fs.readFileSync('code.js')+'');
 
-const testSort = jsc.forall("array nat", function(arr) {
-    var a1 = JSON.parse(JSON.stringify(arr));
-    var a2 = JSON.parse(JSON.stringify(arr));
-    pmsMR(a1, function(i) {jsc.assert(JSON.stringify(a2.sort(function(a, b) { return a - b;}))
-        === JSON.stringify(i))})});
-jsc.assert(testSort);
+const testSort = jsc.asyncProperty("array nat", function (arr, done) {
+    const a1 = JSON.parse(arr);
+    const expected = JSON.parse(arr).sort(function(a, b) { return a - b;};
+
+    pmsMR(a1, function (result) {
+        const pass = JSON.stringify(result) === JSON.stringify(expected);
+        done(pass);
+    });
+});
