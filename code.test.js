@@ -3,6 +3,7 @@ const assert = require('assert');
 
 eval(fs.readFileSync('code.js')+'');
 
+// Generate Random Arrays
 function randArr() {
     const arr = [];
     const size = Math.floor(Math.random() * 21);
@@ -12,18 +13,22 @@ function randArr() {
     return arr;
 }
 
-var arr;
-var tests = []; 
-var expected = [];
-for(let i = 0; i < 100; i++) {
-    arr = randArr();
-    tests.push([...arr]);
-    expected.push(JSON.stringify(arr))
-}
+// Test
+describe('pmsMR', function () {
+    // Do 100 tests
+    for (let i = 0; i < 100; i++) {
+        const arr = randArr();
+        const expected = [...arr];
 
-
-for(let i = 0; i < tests.length; i++) {
-    pmsMR(tests[i], function(actual) {
-        assert.deepStrictEqual(JSON.stringify(actual), expected[i]);
-    });
-}
+        it('Should return correct result for test # ' + i, function (done) {
+            pmsMR(arr, function (actual) {
+                try {
+                    assert.deepStrictEqual(actual, expected);
+                    done();
+                } catch (err) {
+                    done(err);
+                }
+            });
+        });
+    }
+});
