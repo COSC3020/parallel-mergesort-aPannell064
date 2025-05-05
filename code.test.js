@@ -18,9 +18,9 @@ describe('pmsMR', function () {
     // Do 100 tests
     for (let i = 0; i < 100; i++) {
         const arr = randArr();
-        const expected = [...arr];
+        const expected = [...arr].sort((a, b) => a - b);
 
-        it('Should return correct result for test # ' + i, function (done) {
+        it('Should return correct result for array ' + JSON.stringify(arr), function (done) {
             pmsMR(arr, function (actual) {
                 try {
                     assert.deepStrictEqual(actual, expected);
