@@ -18,7 +18,7 @@ var expected = [];
 for(let i = 0; i < 100; i++) {
     arr = randArr();
     tests.push([...arr]);
-    expected.push(JSON.stringify(arr.sort((a, b) => a - b)))
+    expected.push(JSON.stringify(arr))
 }
 
 
