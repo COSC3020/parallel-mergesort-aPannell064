@@ -20,8 +20,9 @@ depth of $log{n}$ and then iterate through the entirety of each divided list.
 
 ## Extra Help
 
-Took a while to figure out the test code. Ended up using [Mocha](https://mochajs.org/) 
-because it had some easy support for testing asynchronous functions. 
+It took me a while to figure out the test code. I ended up using 
+[Mocha](https://mochajs.org/) because it had some simple support for 
+testing asynchronous functions. 
 
 https://www.w3schools.com/js/js_callback.asp helped me better understand 
 callbacks. 
